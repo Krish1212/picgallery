@@ -22,7 +22,7 @@ export class HomePage {
   		//popoverOptions: this.camera.CameraPopoverOptions,
   		saveToPhotoAlbum: false
 	}).then((imageData) => {
-			this.base64Image = 'data:image/jpeg;base64, ' + imageData;
+			this.base64Image = "data:image/jpeg;base64," + imageData;
 			//this.base64Image = imageData;
 			console.log(imageData);
 			this.toast.create({

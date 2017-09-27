@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
 
 @Component({
@@ -9,7 +9,7 @@ import { Camera } from '@ionic-native/camera';
 export class HomePage {
 
   base64Image:any;
-  constructor(public navCtrl: NavController, public camera: Camera) {
+  constructor(public navCtrl: NavController, public camera: Camera, private toast: ToastController) {
 
   }
 
@@ -19,6 +19,10 @@ export class HomePage {
   		destinationType: this.camera.DestinationType.DATA_URL
 	}).then((imageData) => {
 			this.base64Image = 'data:image/jpeg;base64, ' + imageData;
+			this.toast.create({
+				message: imageData,
+				duration: 4000
+			}).present();
 		}, (err) => {
 				console.error(err);
 			});

@@ -15,8 +15,12 @@ export class HomePage {
 
   accessGallery() {
   	this.camera.getPicture({
-  		sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
-  		destinationType: this.camera.DestinationType.DATA_URL
+  		sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+  		destinationType: this.camera.DestinationType.FILE_URI,
+  		allowEdit: false,
+  		encodingType: this.camera.EncodingType.JPEG,
+  		//popoverOptions: this.camera.CameraPopoverOptions,
+  		saveToPhotoAlbum: false
 	}).then((imageData) => {
 			this.base64Image = 'data:image/jpeg;base64, ' + imageData;
 			console.log(imageData);

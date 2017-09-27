@@ -19,6 +19,7 @@ export class HomePage {
   		destinationType: this.camera.DestinationType.DATA_URL
 	}).then((imageData) => {
 			this.base64Image = 'data:image/jpeg;base64, ' + imageData;
+			console.log(imageData);
 			this.toast.create({
 				message: imageData,
 				duration: 4000

@@ -7,9 +7,5 @@
 </ion-header>
 
 <ion-content padding>
-	<button ion-button color="primary" (click)="accessGallery()">OPEN GALLERY</button>
-	<div>Image: {{base64Image}}</div>
-	<img src="http://via.placeholder.com/350x150"/>
-	<img src="file:///storage/emulated/0/DCIM/Camera/IMG_20170901_160255_HDR.jpg"/>
-	<img [src]="base64Image" *ngIf="base64Image"/>
+	<div>{{imagesList}}</div>
 </ion-content>

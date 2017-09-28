@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
-import { Camera } from '@ionic-native/camera';
+import { NavController } from 'ionic-angular';
+import { ImagePicker } from '@ionic-native/image-picker';
 
 @Component({
   selector: 'page-home',
@@ -8,30 +8,26 @@ import { Camera } from '@ionic-native/camera';
 })
 export class HomePage {
 
-  base64Image:any;
-  constructor(public navCtrl: NavController, public camera: Camera, private toast: ToastController) {
+  imageURI:any;
+  imagesList:any;
+  constructor(public navCtrl:NavController, public imagePicker: ImagePicker) {
 
   }
 
   accessGallery() {
-  	this.camera.getPicture({
-  		sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
-  		destinationType: this.camera.DestinationType.FILE_URI,
-  		allowEdit: false,
-  		encodingType: this.camera.EncodingType.JPEG,
-  		//popoverOptions: this.camera.CameraPopoverOptions,
-  		saveToPhotoAlbum: false
-	}).then((imageData) => {
-			this.base64Image = "data:image/jpeg;base64," + imageData;
-			//this.base64Image = imageData;
-			console.log(imageData);
-			this.toast.create({
-				message: imageData,
-				duration: 4000
-			}).present();
+  	this.imagePicker.getPictures({
+  		maximumImagesCount:50,
+  		width:100,
+  		height:100,
+  		quality:100,
+  		outputType: 0
+	}).then((images) => {
+		for(var i = 0; i < images.length; i++){
+			this.imageURI = images[i];
+			this.imagesList.push(this.imageURI);
+			}
 		}, (err) => {
 				console.error(err);
 			});
   }
-
 }

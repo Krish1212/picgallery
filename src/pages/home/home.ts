@@ -27,6 +27,10 @@ export class HomePage {
 				duration: 4000
 				}).present();
 		}, (err) => {
+			this.toast.create({
+				message: err,
+				duration: 4000
+				}).present();
 				console.error(err);
 			});
   }

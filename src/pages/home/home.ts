@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { ImagePicker } from '@ionic-native/image-picker';
 
 @Component({
@@ -9,7 +9,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
 export class HomePage {
 
   imagesList:any;
-  constructor(public navCtrl:NavController, public imagePicker: ImagePicker) {
+  constructor(public navCtrl:NavController, public imagePicker: ImagePicker, public toast: ToastController) {
 
   }
 
@@ -22,6 +22,10 @@ export class HomePage {
   		outputType: 0
 	}).then((images) => {
 			this.imagesList = JSON.stringify(images);
+			this.toast.create({
+				message: this.imagesList,
+				duration: 4000
+				}).present();
 		}, (err) => {
 				console.error(err);
 			});

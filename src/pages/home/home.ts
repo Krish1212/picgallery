@@ -8,7 +8,6 @@ import { ImagePicker } from '@ionic-native/image-picker';
 })
 export class HomePage {
 
-  imageURI:any;
   imagesList:any;
   constructor(public navCtrl:NavController, public imagePicker: ImagePicker) {
 
@@ -22,10 +21,7 @@ export class HomePage {
   		quality:100,
   		outputType: 0
 	}).then((images) => {
-		for(var i = 0; i < images.length; i++){
-			this.imageURI = images[i];
-			this.imagesList.push(this.imageURI);
-			}
+			this.imagesList = JSON.stringify(images);
 		}, (err) => {
 				console.error(err);
 			});

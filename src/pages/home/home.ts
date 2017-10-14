@@ -15,7 +15,7 @@ export class HomePage {
 
   accessGallery() {
   	this.imagePicker.getPictures({
-  		maximumImagesCount:50,
+  		maximumImagesCount:3,
   		width:100,
   		height:100,
   		quality:100,

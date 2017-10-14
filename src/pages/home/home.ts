@@ -15,13 +15,14 @@ export class HomePage {
 
   accessGallery() {
   	this.imagePicker.getPictures({
-  		maximumImagesCount:3,
+  		maximumImagesCount:5,
   		width:100,
   		height:100,
   		quality:100,
   		outputType: 0
 	}).then((images) => {
-			this.imagesList = JSON.stringify(images);
+			//this.imagesList = JSON.stringify(images);
+			this.imagesList = images;
 			this.toast.create({
 				message: this.imagesList,
 				duration: 4000

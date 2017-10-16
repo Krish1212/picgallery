@@ -21,8 +21,9 @@ export class HomePage {
   		quality:100,
   		outputType: 0
 	}).then((images) => {
-			//this.imagesList = JSON.stringify(images);
-			this.imagesList = images;
+		for (let i=0; i<images.length; i++){
+			this.imagesList.push(images[i]);
+		}
 			this.toast.create({
 				message: this.imagesList,
 				duration: 4000

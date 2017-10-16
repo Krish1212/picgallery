@@ -9,8 +9,8 @@
 <ion-content padding>
 	<button ion-button block (click)="accessGallery()">Get List</button>
 	<div>{{imagesList}}</div>
-	<!--<div>{{imagesList[0]}}</div>
-	<div>{{imagesList[1]}}</div>-->
+	<div>{{imagesList[0]}}</div>
+	<div>{{imagesList[1]}}</div>
 	<div *ngFor="let item of imagesList; let i = index">{{imagesList[i]}}</div>
 	<ion-grid>
 		<ion-row>
